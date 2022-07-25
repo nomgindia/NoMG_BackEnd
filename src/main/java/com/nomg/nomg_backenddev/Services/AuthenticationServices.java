@@ -4,8 +4,6 @@ import com.nomg.nomg_backenddev.Model.UserCustomer;
 import com.nomg.nomg_backenddev.Repository.AuthenticationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 import java.util.Optional;
@@ -23,12 +21,9 @@ public class AuthenticationServices {
                 .orElseThrow(() -> new IllegalStateException("User Not Found!"));
 
 
-        if (login.get("password").equals(user.getPassword()))
-        {
+        if (login.get("password").equals(user.getPassword())) {
             return user.getApiKey();
-        }
-        else
-        {
+        } else {
             return "Wrong Password";
         }
     }
@@ -37,18 +32,12 @@ public class AuthenticationServices {
     public String register(Map<String, String> user) {
         Optional<UserCustomer> userOptional = authRepo.findUserByEmailAddress(user.get("emailAddress"));
 
-        if(userOptional.isPresent())
-        {
+        if (userOptional.isPresent()) {
             return "Email Address already in use";
 
-        }
-
-        else if(user.get("emailAddress")==null || user.get("name")==null|| user.get("password")==null)
-        {
+        } else if (user.get("emailAddress") == null || user.get("name") == null || user.get("password") == null) {
             return "Bad Body Found";
-        }
-        else
-        {
+        } else {
 
             String key = UUID.randomUUID().toString();
             UserCustomer userObj = new UserCustomer();
@@ -61,5 +50,21 @@ public class AuthenticationServices {
         }
 
     }
+
+    public String newPassword(String newPassword, String oldPassword, String apiKey) {
+
+        UserCustomer user = authRepo.findUserByApiKey(apiKey)
+                .orElseThrow(() -> new IllegalStateException("User Not Found!"));
+        if (user.getPassword() == oldPassword) {
+            user.setPassword(newPassword);
+            return apiKey;
+        } else {
+            return "incorrect password";
+        }
+
+
+    }
+
+
 
 }
