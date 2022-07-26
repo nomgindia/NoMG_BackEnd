@@ -16,5 +16,6 @@ public class FeedServices {
     public List<FeedModel> getArticles() {
 
         return feedRepo.findAll();
+
     }
 }

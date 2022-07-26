@@ -18,11 +18,9 @@ public class FeedController {
 
 
     @GetMapping("healthcare/")
-    public List<FeedModel> getArticles()
-    {
+    public List<FeedModel> getArticles() {
         return feedServices.getArticles();
     }
-
 
 
 }
