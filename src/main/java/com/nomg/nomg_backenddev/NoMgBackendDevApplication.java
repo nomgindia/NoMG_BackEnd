@@ -9,5 +9,4 @@ public class NoMgBackendDevApplication {
     public static void main(String[] args) {
         SpringApplication.run(NoMgBackendDevApplication.class, args);
     }
-
 }

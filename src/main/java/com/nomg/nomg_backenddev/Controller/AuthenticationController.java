@@ -29,11 +29,6 @@ public class AuthenticationController {
         return authenticationServices.register(user);
     }
 
-//    @PostMapping("forgotpassword/")
-//    public String forgotPassword(String newPassword String emailAddress)
-//    {
-//        return authenticationServices.forgot(newPassword, emailAddress);
-//    }
 
     @PostMapping("changePassword/")
     public String newPassword(String newPassword,String oldPassword, String apiKey)
