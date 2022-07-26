@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("nomgindia/api/v1/")
+@RequestMapping("nomgindia/api/v1/auth/")
 public class AuthenticationController {
 
 
