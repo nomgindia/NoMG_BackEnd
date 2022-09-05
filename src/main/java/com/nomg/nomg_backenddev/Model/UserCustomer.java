@@ -2,19 +2,17 @@ package com.nomg.nomg_backenddev.Model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.stereotype.Component;
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+
+import javax.persistence.Entity;
 
 @Getter
 @Setter
-@Document(collection = "UserCustomer")
-@Component
-public class UserCustomer {
+@Entity
+public class UserCustomer extends AbstractPersistable<Long> {
 
-    @Id
-    ObjectId _id;
+
     String apiKey;
     String name;
     String password;

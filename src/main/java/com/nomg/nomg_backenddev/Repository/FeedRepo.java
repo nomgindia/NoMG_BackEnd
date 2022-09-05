@@ -1,10 +1,10 @@
 package com.nomg.nomg_backenddev.Repository;
 
 import com.nomg.nomg_backenddev.Model.FeedModel;
-import org.bson.types.ObjectId;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FeedRepo extends MongoRepository<FeedModel, ObjectId> {
+
+public interface FeedRepo extends JpaRepository<FeedModel, Long> {
 
 
 }
