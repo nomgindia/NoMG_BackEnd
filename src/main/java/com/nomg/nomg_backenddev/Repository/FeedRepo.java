@@ -6,5 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FeedRepo extends JpaRepository<FeedModel, Long> {
 
+    FeedModel findAllByAuthorId(Long authorId);
+
 
 }

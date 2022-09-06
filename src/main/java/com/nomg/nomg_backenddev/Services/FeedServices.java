@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class FeedServices {
@@ -21,15 +20,18 @@ public class FeedServices {
 
     }
 
-    public String uploadArticles(Map<String, String> feedModel) {
+    public String uploadArticles(FeedModel feedModel) {
         FeedModel feedModel1 = new FeedModel();
-        feedModel1.setHeadLine(feedModel.get("headLine"));
-        feedModel1.setBody(feedModel.get("body"));
-        feedModel1.setAuthorName(feedModel.get("authorName"));
-        feedModel1.setImageUrl(feedModel.get("imageUrl"));
+        feedModel1.setHeadLine(feedModel.getHeadLine());
+        feedModel1.setBody(feedModel.getBody());
+        feedModel1.setImageUrl(feedModel.getImageUrl());
         Date date = new Date();
         feedModel1.setTimeOfPublish(String.valueOf(date.getTime()));
         feedRepo.save(feedModel1);
         return "posted";
     }
+
+//    public String deleteArticle(Long articleId, Long authorId) {
+//        FeedModel feedModel = feedRepo.findAllByAuthorId(authorId);
+//    }
 }
