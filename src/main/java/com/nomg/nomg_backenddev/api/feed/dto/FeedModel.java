@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Getter
 @Setter
@@ -18,6 +19,6 @@ public class FeedModel extends AbstractPersistable<Long> {
     String body;
     String imageUrl;
     String timeOfPublish;
-    @ManyToOne
+    @OneToOne
     Author author;
 }

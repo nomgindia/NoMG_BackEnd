@@ -22,11 +22,18 @@ public class FeedController {
     public String uploadArticles(@RequestBody FeedRequest feedRequestModel){
         return feedServices.uploadArticles(feedRequestModel);
     }
-//    @DeleteMapping("deleteHealthCareArticles/{articleId}/{authorId}")
-//    public String deleteArticle(@PathVariable("articleId") Long articleId,
-//                                @PathVariable("authorId")Long authorId){
-//        return feedServices.deleteArticle(articleId,authorId);
-//    }
+    @DeleteMapping("deleteHealthCareArticles/{articleId}/{authorId}")
+    public String deleteArticle(@PathVariable("articleId") Long articleId,
+                                @PathVariable("authorId")Long authorId){
+        return feedServices.deleteArticle(articleId,authorId);
+    }
+
+    @PutMapping("updateArticles/{articleId}/{authorId}")
+    public String updateArticles(@PathVariable("articleId")Long articleId,
+                                 @PathVariable("authorId")Long authorId,
+                                 @RequestBody FeedRequest feedRequest){
+        return feedServices.updateArticle(articleId,authorId,feedRequest);
+    }
 
 
 }
