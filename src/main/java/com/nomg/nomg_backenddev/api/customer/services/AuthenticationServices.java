@@ -20,8 +20,6 @@ public class AuthenticationServices {
 
         UserCustomer user = authRepo.findUserByEmailAddress(login.getEmail())
                 .orElseThrow(() -> new IllegalStateException("User Not Found!"));
-
-
         if (login.getPassword().equals(user.getPassword())) {
             return user.getApiKey();
         } else {
@@ -32,7 +30,6 @@ public class AuthenticationServices {
 
     public String register(UserAddRequest user) {
         Optional<UserCustomer> userOptional = authRepo.findUserByEmailAddress(user.getEmailAddress());
-
         if (userOptional.isPresent()) {
             return "Email Address already in use";
 
@@ -49,7 +46,6 @@ public class AuthenticationServices {
             authRepo.save(userObj);
             return "Registered";
         }
-
     }
 
     public String newPassword(String newPassword, String oldPassword, String apiKey) {
@@ -62,10 +58,5 @@ public class AuthenticationServices {
         } else {
             return "incorrect password";
         }
-
-
     }
-
-
-
 }

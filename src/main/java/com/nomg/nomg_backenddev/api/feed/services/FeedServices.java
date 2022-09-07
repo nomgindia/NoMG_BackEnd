@@ -16,9 +16,7 @@ public class FeedServices {
     FeedRepo feedRepo;
 
     public List<FeedModel> getArticles() {
-
         return feedRepo.findAll();
-
     }
 
     public String uploadArticles(FeedRequest feedModel) {

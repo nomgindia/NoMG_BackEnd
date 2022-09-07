@@ -14,8 +14,6 @@ public class FeedController {
 
     @Autowired
     FeedServices feedServices;
-
-
     @GetMapping("getHealthCareArticles/")
     public List<FeedModel> getArticles() {
         return feedServices.getArticles();

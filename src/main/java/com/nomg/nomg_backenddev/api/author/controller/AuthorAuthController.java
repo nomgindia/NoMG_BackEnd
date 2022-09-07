@@ -18,7 +18,6 @@ public class AuthorAuthController {
     @Autowired
     AuthorAuthenticationServices authorAuthenticationServices;
 
-
     @GetMapping
     public List<Author> getAllAuthor(){
         return authorAuthenticationServices.getAllAuthor();

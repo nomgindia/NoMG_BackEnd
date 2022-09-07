@@ -11,6 +11,5 @@ import java.util.Optional;
 @Repository
 public interface AuthenticationRepo extends JpaRepository<UserCustomer, Long> {
     Optional<UserCustomer> findUserByEmailAddress(String emailAddress);
-
     Optional<UserCustomer> findUserByApiKey(String apiKey);
 }

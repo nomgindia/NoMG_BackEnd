@@ -24,11 +24,9 @@ public class AuthorAuthenticationServices {
 
         if (authorAuthRepo.countAuthorByEmail(author.getEmail())>0) {
             return "Email Address already in use";
-
         } else if (author.getEmail() == null || author.getName() == null || author.getPassword() == null) {
             return "Bad Body Found";
         } else {
-
             String key = UUID.randomUUID().toString();
             Author userObj = new Author();
             userObj.setEmail(author.getEmail());
@@ -39,7 +37,6 @@ public class AuthorAuthenticationServices {
             authorAuthRepo.save(userObj);
             return "Registered";
         }
-
     }
 
     public String login(LoginCredentials login) {
@@ -52,7 +49,5 @@ public class AuthorAuthenticationServices {
         else{
             return "wrong credential";
         }
-
-
     }
 }
