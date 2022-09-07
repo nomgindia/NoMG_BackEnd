@@ -1,11 +1,12 @@
-package com.nomg.nomg_backenddev.Services;
+package com.nomg.nomg_backenddev.api.customer.services;
 
-import com.nomg.nomg_backenddev.Model.UserCustomer;
-import com.nomg.nomg_backenddev.Repository.AuthenticationRepo;
+import com.nomg.nomg_backenddev.api.customer.dto.UserAddRequest;
+import com.nomg.nomg_backenddev.common.LoginCredentials;
+import com.nomg.nomg_backenddev.api.customer.dto.UserCustomer;
+import com.nomg.nomg_backenddev.api.customer.dao.AuthenticationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -15,13 +16,11 @@ public class AuthenticationServices {
     @Autowired
     private AuthenticationRepo authRepo;
 
-    public String loginUser(Map<String, String> login) {
+    public String loginUser(LoginCredentials login) {
 
-        UserCustomer user = authRepo.findUserByEmailAddress(login.get("emailAddress"))
+        UserCustomer user = authRepo.findUserByEmailAddress(login.getEmail())
                 .orElseThrow(() -> new IllegalStateException("User Not Found!"));
-
-
-        if (login.get("password").equals(user.getPassword())) {
+        if (login.getPassword().equals(user.getPassword())) {
             return user.getApiKey();
         } else {
             return "Wrong Password";
@@ -29,26 +28,24 @@ public class AuthenticationServices {
     }
 
 
-    public String register(Map<String, String> user) {
-        Optional<UserCustomer> userOptional = authRepo.findUserByEmailAddress(user.get("emailAddress"));
-
+    public String register(UserAddRequest user) {
+        Optional<UserCustomer> userOptional = authRepo.findUserByEmailAddress(user.getEmailAddress());
         if (userOptional.isPresent()) {
             return "Email Address already in use";
 
-        } else if (user.get("emailAddress") == null || user.get("name") == null || user.get("password") == null) {
+        } else if (user.getEmailAddress() == null || user.getName() == null || user.getPassword() == null) {
             return "Bad Body Found";
         } else {
 
             String key = UUID.randomUUID().toString();
             UserCustomer userObj = new UserCustomer();
             userObj.setApiKey(key);
-            userObj.setEmailAddress(user.get("emailAddress"));
-            userObj.setName(user.get("name"));
-            userObj.setPassword(user.get("password"));
+            userObj.setEmailAddress(user.getEmailAddress());
+            userObj.setName(user.getName());
+            userObj.setPassword(user.getPassword());
             authRepo.save(userObj);
             return "Registered";
         }
-
     }
 
     public String newPassword(String newPassword, String oldPassword, String apiKey) {
@@ -61,10 +58,5 @@ public class AuthenticationServices {
         } else {
             return "incorrect password";
         }
-
-
     }
-
-
-
 }

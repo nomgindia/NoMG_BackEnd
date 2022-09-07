@@ -1,13 +1,11 @@
-package com.nomg.nomg_backenddev.Controller;
+package com.nomg.nomg_backenddev.api.customer.Controller;
 
-import com.nomg.nomg_backenddev.Services.AuthenticationServices;
+import com.nomg.nomg_backenddev.api.customer.dto.UserAddRequest;
+import com.nomg.nomg_backenddev.common.LoginCredentials;
+import com.nomg.nomg_backenddev.api.customer.dto.UserCustomer;
+import com.nomg.nomg_backenddev.api.customer.services.AuthenticationServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("nomgindia/api/v1/auth/")
@@ -19,13 +17,13 @@ public class AuthenticationController {
 
 
     @PostMapping("login/")
-    public String loginUser(@RequestParam Map<String, String> login) {
+    public String loginUser(@RequestBody LoginCredentials login) {
         return authenticationServices.loginUser(login);
     }
 
 
     @PostMapping("register/")
-    public String register(@RequestParam Map<String, String> user) {
+    public String register(@RequestBody UserAddRequest user) {
         return authenticationServices.register(user);
     }
 
