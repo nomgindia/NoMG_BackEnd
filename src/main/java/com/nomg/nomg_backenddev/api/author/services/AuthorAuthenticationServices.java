@@ -1,8 +1,8 @@
-package com.nomg.nomg_backenddev.Services;
+package com.nomg.nomg_backenddev.api.author.services;
 
-import com.nomg.nomg_backenddev.Model.Author;
-import com.nomg.nomg_backenddev.Model.LoginCredentials;
-import com.nomg.nomg_backenddev.Repository.AuthorAuthRepo;
+import com.nomg.nomg_backenddev.api.author.dto.Author;
+import com.nomg.nomg_backenddev.common.LoginCredentials;
+import com.nomg.nomg_backenddev.api.author.dao.AuthorAuthRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

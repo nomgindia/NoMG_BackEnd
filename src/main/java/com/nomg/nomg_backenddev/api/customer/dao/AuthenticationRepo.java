@@ -1,7 +1,7 @@
-package com.nomg.nomg_backenddev.Repository;
+package com.nomg.nomg_backenddev.api.customer.dao;
 
 
-import com.nomg.nomg_backenddev.Model.UserCustomer;
+import com.nomg.nomg_backenddev.api.customer.dto.UserCustomer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

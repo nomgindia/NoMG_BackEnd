@@ -1,6 +1,7 @@
-package com.nomg.nomg_backenddev.Model;
+package com.nomg.nomg_backenddev.api.feed.dto;
 
 
+import com.nomg.nomg_backenddev.api.author.dto.Author;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;

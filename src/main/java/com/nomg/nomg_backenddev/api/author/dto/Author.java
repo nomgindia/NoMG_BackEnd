@@ -1,4 +1,4 @@
-package com.nomg.nomg_backenddev.Model;
+package com.nomg.nomg_backenddev.api.author.dto;
 
 
 import lombok.Getter;

@@ -1,6 +1,6 @@
-package com.nomg.nomg_backenddev.Repository;
+package com.nomg.nomg_backenddev.api.feed.dao;
 
-import com.nomg.nomg_backenddev.Model.FeedModel;
+import com.nomg.nomg_backenddev.api.feed.dto.FeedModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

@@ -1,4 +1,4 @@
-package com.nomg.nomg_backenddev.Model;
+package com.nomg.nomg_backenddev.common;
 
 
 import lombok.Getter;

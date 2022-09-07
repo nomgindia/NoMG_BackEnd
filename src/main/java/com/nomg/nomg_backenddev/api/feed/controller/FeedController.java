@@ -1,12 +1,11 @@
-package com.nomg.nomg_backenddev.Controller;
+package com.nomg.nomg_backenddev.api.feed.controller;
 
-import com.nomg.nomg_backenddev.Model.FeedModel;
-import com.nomg.nomg_backenddev.Services.FeedServices;
+import com.nomg.nomg_backenddev.api.feed.dto.FeedModel;
+import com.nomg.nomg_backenddev.api.feed.services.FeedServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("nomgindia/api/v1/feed/")

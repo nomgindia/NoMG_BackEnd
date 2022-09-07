@@ -1,7 +1,7 @@
-package com.nomg.nomg_backenddev.Services;
+package com.nomg.nomg_backenddev.api.feed.services;
 
-import com.nomg.nomg_backenddev.Model.FeedModel;
-import com.nomg.nomg_backenddev.Repository.FeedRepo;
+import com.nomg.nomg_backenddev.api.feed.dto.FeedModel;
+import com.nomg.nomg_backenddev.api.feed.dao.FeedRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

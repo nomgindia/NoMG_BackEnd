@@ -1,15 +1,13 @@
-package com.nomg.nomg_backenddev.Controller;
+package com.nomg.nomg_backenddev.api.author.controller;
 
 
-import com.nomg.nomg_backenddev.Model.Author;
-import com.nomg.nomg_backenddev.Model.LoginCredentials;
-import com.nomg.nomg_backenddev.Repository.AuthorAuthRepo;
-import com.nomg.nomg_backenddev.Services.AuthorAuthenticationServices;
+import com.nomg.nomg_backenddev.api.author.dto.Author;
+import com.nomg.nomg_backenddev.common.LoginCredentials;
+import com.nomg.nomg_backenddev.api.author.services.AuthorAuthenticationServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("nomgindia/api/v1/author/auth/")

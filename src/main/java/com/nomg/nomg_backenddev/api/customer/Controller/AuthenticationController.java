@@ -1,12 +1,10 @@
-package com.nomg.nomg_backenddev.Controller;
+package com.nomg.nomg_backenddev.api.customer.Controller;
 
-import com.nomg.nomg_backenddev.Model.LoginCredentials;
-import com.nomg.nomg_backenddev.Model.UserCustomer;
-import com.nomg.nomg_backenddev.Services.AuthenticationServices;
+import com.nomg.nomg_backenddev.common.LoginCredentials;
+import com.nomg.nomg_backenddev.api.customer.dto.UserCustomer;
+import com.nomg.nomg_backenddev.api.customer.services.AuthenticationServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("nomgindia/api/v1/auth/")
