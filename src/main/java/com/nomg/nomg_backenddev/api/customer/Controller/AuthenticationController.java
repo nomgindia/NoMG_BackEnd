@@ -1,5 +1,6 @@
 package com.nomg.nomg_backenddev.api.customer.Controller;
 
+import com.nomg.nomg_backenddev.api.customer.dto.UserAddRequest;
 import com.nomg.nomg_backenddev.common.LoginCredentials;
 import com.nomg.nomg_backenddev.api.customer.dto.UserCustomer;
 import com.nomg.nomg_backenddev.api.customer.services.AuthenticationServices;
@@ -22,7 +23,7 @@ public class AuthenticationController {
 
 
     @PostMapping("register/")
-    public String register(@RequestBody UserCustomer user) {
+    public String register(@RequestBody UserAddRequest user) {
         return authenticationServices.register(user);
     }
 

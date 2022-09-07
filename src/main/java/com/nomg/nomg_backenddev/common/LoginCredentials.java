@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 
 @Getter
 @Setter
-@Entity
 public class LoginCredentials extends AbstractPersistable<Long> {
     String email;
     String password;

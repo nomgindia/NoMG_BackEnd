@@ -1,6 +1,7 @@
 package com.nomg.nomg_backenddev.api.author.services;
 
 import com.nomg.nomg_backenddev.api.author.dto.Author;
+import com.nomg.nomg_backenddev.api.author.dto.AuthorRequest;
 import com.nomg.nomg_backenddev.common.LoginCredentials;
 import com.nomg.nomg_backenddev.api.author.dao.AuthorAuthRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class AuthorAuthenticationServices {
         return authorAuthRepo.findAll();
     }
 
-    public String register(Author author) {
+    public String register(AuthorRequest author) {
 
         if (authorAuthRepo.countAuthorByEmail(author.getEmail())>0) {
             return "Email Address already in use";
@@ -33,8 +34,7 @@ public class AuthorAuthenticationServices {
             userObj.setEmail(author.getEmail());
             userObj.setName(author.getName());
             userObj.setPassword(author.getPassword());
-            userObj.setTimeOfPost(author.getTimeOfPost());
-            userObj.setSource(author.getSource());
+            userObj.setGender(author.getGender());
             userObj.setApiKey(key);
             authorAuthRepo.save(userObj);
             return "Registered";

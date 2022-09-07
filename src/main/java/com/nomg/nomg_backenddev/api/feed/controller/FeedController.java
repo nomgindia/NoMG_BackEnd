@@ -1,6 +1,7 @@
 package com.nomg.nomg_backenddev.api.feed.controller;
 
 import com.nomg.nomg_backenddev.api.feed.dto.FeedModel;
+import com.nomg.nomg_backenddev.api.feed.dto.FeedRequest;
 import com.nomg.nomg_backenddev.api.feed.services.FeedServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,8 @@ public class FeedController {
         return feedServices.getArticles();
     }
     @PostMapping("postHealthCareArticles/")
-    public String uploadArticles(@RequestBody FeedModel feedModel){
-        return feedServices.uploadArticles(feedModel);
+    public String uploadArticles(@RequestBody FeedRequest feedRequestModel){
+        return feedServices.uploadArticles(feedRequestModel);
     }
 //    @DeleteMapping("deleteHealthCareArticles/{articleId}/{authorId}")
 //    public String deleteArticle(@PathVariable("articleId") Long articleId,

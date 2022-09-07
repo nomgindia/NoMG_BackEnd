@@ -1,5 +1,6 @@
 package com.nomg.nomg_backenddev.api.customer.services;
 
+import com.nomg.nomg_backenddev.api.customer.dto.UserAddRequest;
 import com.nomg.nomg_backenddev.common.LoginCredentials;
 import com.nomg.nomg_backenddev.api.customer.dto.UserCustomer;
 import com.nomg.nomg_backenddev.api.customer.dao.AuthenticationRepo;
@@ -29,7 +30,7 @@ public class AuthenticationServices {
     }
 
 
-    public String register(UserCustomer user) {
+    public String register(UserAddRequest user) {
         Optional<UserCustomer> userOptional = authRepo.findUserByEmailAddress(user.getEmailAddress());
 
         if (userOptional.isPresent()) {
