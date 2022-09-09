@@ -5,10 +5,9 @@ import com.nomg.nomg_backenddev.api.feed.dao.FeedRepo;
 import com.nomg.nomg_backenddev.api.feed.dto.FeedRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class FeedServices {
